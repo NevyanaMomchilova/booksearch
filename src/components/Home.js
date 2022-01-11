@@ -1,9 +1,9 @@
 import "./Home.css";
 
-const Home = () => {
+const Home = ({ children }) => {
   return (
     <div className="home">
-        <div className="home-bg"></div>
+        {children}
         {/* TODO QUOTE HERE and button for another one */}
     </div>
   );

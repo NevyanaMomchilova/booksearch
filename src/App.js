@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import axios from "axios";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
+import BookList from "./components/BookList";
 import Home from "./components/Home";
+import HomeBackground from "./components/HomeBackground";
 import Categories from "./components/Categories";
 import Wishlist from "./components/Wishlist";
 import Quotes from "./components/Quotes";
@@ -10,6 +13,12 @@ import Quotes from "./components/Quotes";
 const App = () => {
 	const [books, setBooks] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
+
+	useEffect(() => {
+		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`).then((res) => {
+			setBooks(res.data.items);
+		  });
+	}, [searchTerm]);
 
 	// Handle Click Event in Search Component after click on the search icon
 	const handleSearchClick = (searchInputRef) => {
@@ -27,6 +36,9 @@ const App = () => {
 		}
 	};
 
+	// API call with SearchTerm
+
+
 	return (
 		<div className="App">
 			<BrowserRouter>
@@ -38,10 +50,9 @@ const App = () => {
 				</Navbar>
 				<Switch>
 					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/">
-						<Home />
+						<Home>
+							{books.length === 0 ? <HomeBackground /> : <BookList />}
+						</Home>
 					</Route>
 					<Route exact path="/categories">
 						<Categories />
