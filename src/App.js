@@ -8,6 +8,7 @@ import Wishlist from "./components/Wishlist";
 import Quotes from "./components/Quotes";
 
 const App = () => {
+	const [books, setBooks] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
 
 	// Handle Click Event in Search Component after click on the search icon
@@ -16,7 +17,7 @@ const App = () => {
 			setSearchTerm(searchInputRef.current.value);
 			searchInputRef.current.value = "";
 		}
-	}
+	};
 
 	// Handle KeyPress Event in Search Component after hitting "enter" in the search field
 	const handleSearchEnter = (e) => {
@@ -28,7 +29,7 @@ const App = () => {
 
 	return (
 		<div className="App">
-			<BrowserRouter >
+			<BrowserRouter>
 				<Navbar>
 					<Search
 						handleSearchClick={handleSearchClick}
@@ -36,6 +37,9 @@ const App = () => {
 					/>
 				</Navbar>
 				<Switch>
+					<Route exact path="/">
+						<Home />
+					</Route>
 					<Route exact path="/">
 						<Home />
 					</Route>
