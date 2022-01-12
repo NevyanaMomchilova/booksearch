@@ -1,5 +1,25 @@
-.booklist {
+.book-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     min-height: 100vh;
     padding: 9rem 4rem 0 4rem;
 }
+
+.book-list-title {
+    padding: 6rem;
+    color: var(--main-light);
+}
+
+.book-list-title em {
+    color: var(--main-dark);
+}
+
+.book-list-books {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+

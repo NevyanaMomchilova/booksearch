@@ -15,7 +15,7 @@ const App = () => {
 	const [searchTerm, setSearchTerm] = useState("");
 
 	useEffect(() => {
-		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`).then((res) => {
+		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40`).then((res) => {
 			setBooks(res.data.items);
 		  });
 	}, [searchTerm]);
@@ -51,7 +51,11 @@ const App = () => {
 				<Switch>
 					<Route exact path="/">
 						<Home>
-							{books.length === 0 ? <HomeBackground /> : <BookList />}
+							{books.length === 0 ? 
+								<HomeBackground /> 
+							: 
+								<BookList books={books} searchTerm={searchTerm} />
+							}
 						</Home>
 					</Route>
 					<Route exact path="/categories">

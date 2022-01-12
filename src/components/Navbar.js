@@ -1,9 +1,8 @@
 import "./Navbar.css";
 import React from "react";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { BiBookHeart, BiMenu } from "react-icons/bi";
 import { FiHeart } from "react-icons/fi";
-import { BsCart } from "react-icons/bs";
 
 const Navbar = ({ children }) => {
     return (

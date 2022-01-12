@@ -1,3 +1,4 @@
+import "./Search.css";
 import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { createRef } from "react";
