@@ -1,10 +1,9 @@
 import "./Button.css";
 import React from "react";
-import { FiHeart } from "react-icons/fi";
 
-const Button = ({ children, className }) => {
+const Button = ({ children, className, toggleWishlist }) => {
     return (
-        <button className={className} ><FiHeart className="btn-icon" />{ children }</button>
+        <button className={className} onClick={toggleWishlist} >{ children }</button>
     );
 }
 

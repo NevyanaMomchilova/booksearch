@@ -13,12 +13,8 @@ import Quotes from "./components/Quotes";
 const App = () => {
 	const [books, setBooks] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
-
-	useEffect(() => {
-		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40`).then((res) => {
-			setBooks(res.data.items);
-		  });
-	}, [searchTerm]);
+	const [wishlist, setWishlist] = useState([]);
+	const [wishlistCounter, setWishlistCounter] = useState(0);
 
 	// Handle Click Event in Search Component after click on the search icon
 	const handleSearchClick = (searchInputRef) => {
@@ -37,12 +33,22 @@ const App = () => {
 	};
 
 	// API call with SearchTerm
+	useEffect(() => {
+		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40`).then((res) => {
+			setBooks(res.data.items);
+		  });
+	}, [searchTerm]);
+
+	// Set Wishlist Counter
+	useEffect(() => {
+		setWishlistCounter(wishlist.length);
+	}, [wishlist]);
 
 
 	return (
 		<div className="App">
 			<BrowserRouter>
-				<Navbar>
+				<Navbar wishlistCounter={wishlistCounter}>
 					<Search
 						handleSearchClick={handleSearchClick}
 						handleSearchEnter={handleSearchEnter}
@@ -54,7 +60,11 @@ const App = () => {
 							{books.length === 0 ? 
 								<HomeBackground /> 
 							: 
-								<BookList books={books} searchTerm={searchTerm} />
+								<BookList 
+									books={books} 
+									searchTerm={searchTerm}
+									wishlist={wishlist}
+									setWishlist={setWishlist} />
 							}
 						</Home>
 					</Route>

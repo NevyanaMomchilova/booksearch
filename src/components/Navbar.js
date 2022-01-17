@@ -2,9 +2,9 @@ import "./Navbar.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { BiBookHeart, BiMenu } from "react-icons/bi";
-import { FiHeart } from "react-icons/fi";
+import { RiHeartLine } from "react-icons/ri";
 
-const Navbar = ({ children }) => {
+const Navbar = ({ children, wishlistCounter }) => {
     return (
         <header className="navbar" >
             <nav className="navbar-items-left" >
@@ -33,9 +33,11 @@ const Navbar = ({ children }) => {
                 {/* WishList */}
                 <div className="wishlist-container" >
                     <div className="wishlist-bubble" >
-                        <p className="wishlist-number" >0</p>
+                        <p className="wishlist-number" >
+                            {wishlistCounter}
+                        </p>
                     </div>
-                    <FiHeart className="wishlist-icon" />
+                    <RiHeartLine className="wishlist-icon" />
                 </div>
             </div>
         </header>

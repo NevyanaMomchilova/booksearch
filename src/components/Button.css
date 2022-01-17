@@ -19,19 +19,34 @@
     margin-right: 0.5rem;
 }
 
-.add-to-wishlist-btn {
+.wishlist-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.8rem;
     background-color: transparent;
-    color: var(--main-light);
     border: none;
     margin: 1rem;
 }
 
+.add-to-wishlist-btn {
+    color: var(--main-dark);
+    border-bottom: 0.2rem solid var(--main-dark);
+}
+
+.remove-from-wishlist-btn {
+    color: var(--main-light);
+    transform: scale(1.1);
+}
+
 .add-to-wishlist-btn:hover {
-    transform: scale(1.02);
+    transform: scale(1.1);
     transition: all 0.1s ease-in-out;
-    border-bottom: 0.15rem solid var(--main-light);
+    color: var(--main-light);
+    border-bottom: 0.2rem solid var(--main-light);
+}
+
+.add-to-wishlist-btn:visited {
+    transform: scale(1.1);
+    transition: all 0.1s ease-in-out;
 }
