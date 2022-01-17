@@ -44,8 +44,8 @@ const App = () => {
 			if (book.volumeInfo.hasOwnProperty("title") === false) {
 				book.volumeInfo["title"] = "Unknown Title";
 			}
-			if (book.volumeInfo.hasOwnProperty("author") === false) {
-				book.volumeInfo["author"] = "Unknown Author";
+			if (book.volumeInfo.hasOwnProperty("authors") === false) {
+				book.volumeInfo["authors"] = "Unknown Author";
 			}
 			return book;
 		});
@@ -56,7 +56,8 @@ const App = () => {
 	useEffect(() => {
 		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40`).then((res) => {
 			setBooks(addMissingBookInfo(res.data.items));
-		  });
+		  })
+		  .catch(err => console.log(err))
 	}, [searchTerm]);
 
 	// Set Wishlist Counter

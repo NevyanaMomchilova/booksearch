@@ -17,8 +17,7 @@ const BookList = ({ books, searchTerm, wishlist, setWishlist }) => {
         <div className="book-list">
             <h1 className="book-list-title">You have searched for <em>{searchTerm}</em></h1>
             <div className="book-list-books">
-
-                {books.map(book => {
+                {books.map(book => {  
                 return <BookCard 
                             book={book}
                             key={book.id} 
