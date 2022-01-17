@@ -9,6 +9,7 @@ import HomeBackground from "./components/HomeBackground";
 import Categories from "./components/Categories";
 import Wishlist from "./components/Wishlist";
 import Quotes from "./components/Quotes";
+import { BiBookOpen } from "react-icons/bi";
 
 const App = () => {
 	const [books, setBooks] = useState([]);
@@ -32,10 +33,29 @@ const App = () => {
 		}
 	};
 
+	// Fill missing information in book data from Google Book Api request
+	const addMissingBookInfo = (bookData) => {
+		const updatedBookData = bookData.map(book => {
+			if (book.volumeInfo.hasOwnProperty("imageLinks") === false) {
+				book.volumeInfo["imageLinks"] = {
+					thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/602px-No_picture_available.png"
+				}
+			} 
+			if (book.volumeInfo.hasOwnProperty("title") === false) {
+				book.volumeInfo["title"] = "Unknown Title";
+			}
+			if (book.volumeInfo.hasOwnProperty("author") === false) {
+				book.volumeInfo["author"] = "Unknown Author";
+			}
+			return book;
+		});
+		return updatedBookData;
+	}
+
 	// API call with SearchTerm
 	useEffect(() => {
 		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40`).then((res) => {
-			setBooks(res.data.items);
+			setBooks(addMissingBookInfo(res.data.items));
 		  });
 	}, [searchTerm]);
 
