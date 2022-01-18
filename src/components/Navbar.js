@@ -17,13 +17,10 @@ const Navbar = ({ children, wishlistCounter }) => {
                 </NavLink>
                 <ul className="navbar-menu" >
                     <li>
-                        <NavLink to="/categories" className="navbar-menu-link" >Categories</NavLink>
+                        <NavLink to="/wishlist" className="navbar-menu-link" activeClassName="navbar-menu-link-active" >Wishlist</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/wishlist" className="navbar-menu-link" >Wishlist</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to="/quotes" className="navbar-menu-link" >Quotes</NavLink>
+                        <NavLink to="/quotes" className="navbar-menu-link" activeClassName="navbar-menu-link-active" >Quotes</NavLink>
                     </li>
                 </ul>
             </nav>

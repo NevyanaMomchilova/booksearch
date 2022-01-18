@@ -6,10 +6,8 @@ import Search from "./components/Search";
 import BookList from "./components/BookList";
 import Home from "./components/Home";
 import HomeBackground from "./components/HomeBackground";
-import Categories from "./components/Categories";
 import Wishlist from "./components/Wishlist";
 import Quotes from "./components/Quotes";
-import { BiBookOpen } from "react-icons/bi";
 
 const App = () => {
 	const [books, setBooks] = useState([]);
@@ -80,9 +78,6 @@ const App = () => {
 						<Home>
 							<HomeBackground />
 						</Home>
-					</Route>
-					<Route exact path="/categories">
-						<Categories />
 					</Route>
 					<Route exact path="/wishlist">
 						<Wishlist 

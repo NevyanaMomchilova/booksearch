@@ -15,7 +15,7 @@ const Wishlist = ({ wishlist, setWishlist, wishlistCounter }) => {
     
     return ( 
         <div className="wishlist">
-            <h1 className="wishlist-title">You have <em>{wishlistCounter}</em> books in your wishlist</h1>
+            <h1 className="wishlist-title">You have <em>{wishlistCounter}</em>{ wishlistCounter === 1 ? " book" : " books"} in your wishlist</h1>
             <div className="wishlist-books">
                 {wishlist.map(book => {  
                 return <BookCard 

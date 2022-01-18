@@ -55,7 +55,7 @@
 .navbar-menu-link {
     font-size: 1.8rem;
     font-weight: 500;
-    padding-right: 5rem;
+    margin-right: 5rem;
     color: var(--grayish-dark);
 }
 
@@ -110,8 +110,13 @@
 
 
 /* HOVER, ACTIVE, FOCUS Effects */
-.search-input:focus,
-.search-input:hover {
-    outline: 0.1rem solid var(--main-light);
-    border: 0.1rem solid var(--main-light);
+.navbar-menu-link:hover,
+.navbar-menu-link-active {
+    color: var(--main-light);
+    transition: all 0.1s ease-in-out;
+}
+
+.wishlist-container:hover {
+    transform: scale(1.1);
+    transition: all 0.1s ease-in-out;
 }
