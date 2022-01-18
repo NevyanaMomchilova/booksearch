@@ -7,7 +7,7 @@
     flex-basis: 25rem;
     height: 45rem;
     padding: 1.4rem;
-    border: 0.1rem solid var(--light);
+    border: 0.05rem solid var(--dark);
 }
 
 .book-card-img {
@@ -36,5 +36,5 @@
 
 /* Hover effects */
 .book-card:hover {
-    box-shadow: 0.1rem 0.1rem 1rem 0.5rem var(--light);
+    box-shadow: 0.1rem 0.1rem 1rem 0.5rem var(--dark);
 }

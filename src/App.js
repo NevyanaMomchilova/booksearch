@@ -78,6 +78,25 @@ const App = () => {
 				<Switch>
 					<Route exact path="/">
 						<Home>
+							<HomeBackground />
+						</Home>
+					</Route>
+					<Route exact path="/categories">
+						<Categories />
+					</Route>
+					<Route exact path="/wishlist">
+						<Wishlist 
+							books={books} 
+							searchTerm={searchTerm}
+							wishlist={wishlist}
+							setWishlist={setWishlist}
+							wishlistCounter={wishlistCounter} />
+					</Route>
+					<Route exact path="/quotes">
+						<Quotes />
+					</Route>
+					<Route exact path="/search">
+						<Home>
 							{books.length === 0 ? 
 								<HomeBackground /> 
 							: 
@@ -88,15 +107,6 @@ const App = () => {
 									setWishlist={setWishlist} />
 							}
 						</Home>
-					</Route>
-					<Route exact path="/categories">
-						<Categories />
-					</Route>
-					<Route exact path="/wishlist">
-						<Wishlist />
-					</Route>
-					<Route exact path="/quotes">
-						<Quotes />
 					</Route>
 				</Switch>
 			</BrowserRouter>

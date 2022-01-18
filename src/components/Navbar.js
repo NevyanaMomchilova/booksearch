@@ -31,14 +31,16 @@ const Navbar = ({ children, wishlistCounter }) => {
                 {/* Searct */}
                 { children }
                 {/* WishList */}
-                <div className="wishlist-container" >
-                    <div className="wishlist-bubble" >
-                        <p className="wishlist-number" >
-                            {wishlistCounter}
-                        </p>
+                <NavLink to="/wishlist" >
+                    <div className="wishlist-container" >
+                        <div className="wishlist-bubble" >
+                            <p className="wishlist-number" >
+                                {wishlistCounter}
+                            </p>
+                        </div>
+                        <RiHeartLine className="wishlist-icon" />
                     </div>
-                    <RiHeartLine className="wishlist-icon" />
-                </div>
+                </NavLink>
             </div>
         </header>
     );

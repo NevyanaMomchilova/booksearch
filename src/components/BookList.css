@@ -15,11 +15,13 @@
 
 .book-list-title em {
     color: var(--main-dark);
+    padding: 0 0.5rem;
 }
 
 .book-list-books {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    border: 0.05rem solid var(--dark);
 }
 

@@ -1,5 +1,36 @@
 .wishlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     min-height: 100vh;
     padding: 9rem 4rem 0 4rem;
+}
+
+.wishlist-title {
+    padding: 6rem;
+    color: var(--main-light);
+}
+
+.wishlist-title em {
+    color: var(--main-dark);
+    padding: 0 0.5rem;
+}
+
+.wishlist-books {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: var(--white);
+    border: 0.05rem solid var(--light);
+}
+
+.wishlist .book-card {
+    border: 0.05rem solid var(--light);
+}
+
+/* Hover effects */
+.wishlist .book-card:hover {
+    box-shadow: 0.1rem 0.1rem 1rem 0.5rem var(--light);
 }
