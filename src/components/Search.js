@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const Search = ({ handleSearchClick, handleSearchEnter }) => {
     let searchInputRef = createRef();
     return (
-        <NavLink to="/search" >
+        <NavLink to="/booklist" >
             <div className="search-container" >
                 <BsSearch 
                     className="search-icon" 

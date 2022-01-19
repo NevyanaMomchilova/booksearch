@@ -90,7 +90,7 @@ const App = () => {
 					<Route exact path="/quotes">
 						<Quotes />
 					</Route>
-					<Route exact path="/search">
+					<Route exact path="/booklist">
 						<Home>
 							{books.length === 0 ? 
 								<HomeBackground /> 
