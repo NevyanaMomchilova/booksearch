@@ -2,17 +2,8 @@ import "./Wishlist.css";
 import BookCard from "./BookCard";
 
 
-const Wishlist = ({ wishlist, setWishlist, wishlistCounter }) => {
+const Wishlist = ({ wishlist, toggleWishlist, wishlistCounter, handleBookDetailBtn }) => {
 
-    const toggleWishlist = (book) => {
-        if (!wishlist.includes(book)) {
-            setWishlist([...wishlist, book ]);
-        } else {
-            setWishlist(wishlist.filter(wishBook => wishBook !== book))
-        }
-        
-    };
-    
     return ( 
         <div className="wishlist">
             <h1 className="wishlist-title">You have <em>{wishlistCounter}</em>{ wishlistCounter === 1 ? " book" : " books"} in your wishlist</h1>
@@ -25,7 +16,8 @@ const Wishlist = ({ wishlist, setWishlist, wishlistCounter }) => {
                             title={book.volumeInfo.title} 
                             author={book.volumeInfo.authors[0]} 
                             wishlist={wishlist}
-                            toggleWishlist={() => toggleWishlist(book)} 
+                            toggleWishlist={() => toggleWishlist(book)}
+                            handleBookDetailBtn={handleBookDetailBtn} 
                         />
                 })}
             </div>

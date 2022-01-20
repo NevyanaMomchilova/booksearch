@@ -9,7 +9,7 @@ const Navbar = ({ children, wishlistCounter }) => {
         <header className="navbar" >
             <nav className="navbar-items-left" >
                 <BiMenu className="hamburger-icon" title="hamburger menu" />
-                <NavLink to="/" >
+                <NavLink to="/booklist" >
                     <div className="logo-container">
                         <BiBookHeart className="logo" title="bookstore logo" />
                         <p className="logo-text" >BOOK<br/>SEARCH</p>

@@ -8,12 +8,15 @@ import Home from "./components/Home";
 import HomeBackground from "./components/HomeBackground";
 import Wishlist from "./components/Wishlist";
 import Quotes from "./components/Quotes";
+import BookDetail from "./components/BookDetail";
+import BookCard from "./components/BookCard";
 
 const App = () => {
 	const [books, setBooks] = useState([]);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [wishlist, setWishlist] = useState([]);
 	const [wishlistCounter, setWishlistCounter] = useState(0);
+	const [bookDetail, setBookDetail] = useState({});
 
 	// Handle Click Event in Search Component after click on the search icon
 	const handleSearchClick = (searchInputRef) => {
@@ -58,10 +61,25 @@ const App = () => {
 		  .catch(err => console.log(err))
 	}, [searchTerm]);
 
+
+	// Toggle Wishlist Button - add or remove book from wishlist
+	const toggleWishlist = (book) => {
+		if (!wishlist.includes(book)) {
+			setWishlist([...wishlist, book]);
+		} else {
+			setWishlist(wishlist.filter((wishBook) => wishBook !== book));
+		}
+	};
+
 	// Set Wishlist Counter
 	useEffect(() => {
 		setWishlistCounter(wishlist.length);
 	}, [wishlist]);
+
+	// Handle Book Detail Button
+	const handleBookDetailBtn = (book) => {
+		setBookDetail(book);
+	}
 
 
 	return (
@@ -84,8 +102,9 @@ const App = () => {
 							books={books} 
 							searchTerm={searchTerm}
 							wishlist={wishlist}
-							setWishlist={setWishlist}
-							wishlistCounter={wishlistCounter} />
+							toggleWishlist={toggleWishlist}
+							wishlistCounter={wishlistCounter}
+							handleBookDetailBtn={handleBookDetailBtn} />
 					</Route>
 					<Route exact path="/quotes">
 						<Quotes />
@@ -99,9 +118,16 @@ const App = () => {
 									books={books} 
 									searchTerm={searchTerm}
 									wishlist={wishlist}
-									setWishlist={setWishlist} />
+									toggleWishlist={toggleWishlist}
+									handleBookDetailBtn={handleBookDetailBtn} />
 							}
 						</Home>
+					</Route>
+					<Route path="/booklist/:title">
+						<BookDetail 
+							book={bookDetail}
+							wishlist={wishlist}
+							toggleWishlist={toggleWishlist} />
 					</Route>
 				</Switch>
 			</BrowserRouter>

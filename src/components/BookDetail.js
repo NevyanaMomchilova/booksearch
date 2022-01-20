@@ -1,12 +1,15 @@
-import "./BookCard.css";
+import "./BookDetail.css";
+import Button from "./Button";
 import { Link } from "react-router-dom";
 import { RiHeartLine, RiHeartFill } from "react-icons/ri";
-import Button from "./Button";
 
-const BookCard = ({ book, imageSrc, title, author, wishlist, toggleWishlist, handleBookDetailBtn }) => {
+const BookDetail = ({ book, wishlist, toggleWishlist }) => {
+    const imageSrc = book.volumeInfo.imageLinks.thumbnail;
+	const title = book.volumeInfo.title;
+	const author = book.volumeInfo.authors[0];
 
     return ( 
-        <div className="book-card" >
+        <div className="book-detail" >
             <img className="book-card-img" src={imageSrc} alt={title} />
             <div className="book-card-info">
                 <h2 className="book-card-title">{title}</h2>
@@ -15,7 +18,7 @@ const BookCard = ({ book, imageSrc, title, author, wishlist, toggleWishlist, han
             <div className="book-card-btn-container">
                 <Button 
                     className={wishlist.includes(book) ? "wishlist-btn remove-from-wishlist-btn" : "wishlist-btn add-to-wishlist-btn"} 
-                    handleFunction={toggleWishlist} 
+                    handleFunction={() => toggleWishlist(book)} 
                 >
                     {wishlist.includes(book) ?
                     <RiHeartFill className="btn-icon" />
@@ -23,12 +26,12 @@ const BookCard = ({ book, imageSrc, title, author, wishlist, toggleWishlist, han
                     <RiHeartLine className="btn-icon" />}
                     Wishlist
                 </Button>
-                <Link to={`/booklist/${book.title}`}>
-                    <Button handleFunction={() => handleBookDetailBtn(book)} className={"round-btn "}>Detail</Button>
+                <Link to="/booklist">
+                    <Button className={"round-btn "}>Go Back</Button>
                 </Link>
             </div>
         </div>
      );
 }
  
-export default BookCard;
+export default BookDetail;

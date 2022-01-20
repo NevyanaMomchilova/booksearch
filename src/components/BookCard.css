@@ -34,6 +34,13 @@
     color: var(--grayish);
 }
 
+.book-card-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
 /* Hover effects */
 .book-card:hover {
     box-shadow: 0.1rem 0.1rem 1rem 0.5rem var(--dark);
