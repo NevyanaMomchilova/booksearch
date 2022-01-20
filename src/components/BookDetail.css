@@ -1,5 +1,72 @@
+/* Book Detail Containers */
 .book-detail {
-    width: 100%;
-    min-height: 100vh;
-    padding: 9rem 4rem 0 4rem;
+	width: 100%;
+	min-height: 100vh;
+	padding: 15rem 4rem 0 4rem;
+}
+
+.book-detail-wrapper {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin-bottom: 5rem;
+}
+
+.book-detail-main-info {
+	margin-right: 10rem;
+}
+
+.book-detail-additional-info {
+	padding-left: 10rem;
+	border-left: 0.1rem solid var(--main-light);
+}
+
+.book-detail-about-info {
+	max-width: 120ch;
+}
+
+/* Book Details */
+.book-detail-img {
+	width: 15rem;
+	margin-right: 3rem;
+	border-radius: 0.5rem;
+}
+
+.book-detail-btn-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2rem;
+}
+
+.book-detail-main-title {
+	font-size: 2.4rem;
+	color: var(--main-light);
+	margin: 2rem 0rem;
+}
+
+.book-detail p {
+	line-height: 2.4rem;
+	font-size: 1.6rem;
+	color: var(--grayish);
+}
+
+.book-detail em {
+	font-size: 1.8rem;
+	color: var(--main-dark);
+}
+
+.book-detail-categories {
+	margin-top: 2rem;
+}
+
+.book-detail-category em,
+.book-detail-publisher em {
+	color: var(--main-light);
+}
+
+.book-detail-subtitle {
+	font-size: 1.8rem;
+	color: var(--main-dark);
+	margin: 2rem 0rem;
 }

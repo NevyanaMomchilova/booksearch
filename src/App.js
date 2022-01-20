@@ -36,31 +36,54 @@ const App = () => {
 
 	// Fill missing information in book data from Google Book Api request
 	const addMissingBookInfo = (bookData) => {
-		const updatedBookData = bookData.map(book => {
+		const updatedBookData = bookData.map((book) => {
 			if (book.volumeInfo.hasOwnProperty("imageLinks") === false) {
 				book.volumeInfo["imageLinks"] = {
-					thumbnail: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/602px-No_picture_available.png"
-				}
-			} 
+					thumbnail:
+						"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/No_picture_available.png/602px-No_picture_available.png",
+				};
+			}
 			if (book.volumeInfo.hasOwnProperty("title") === false) {
 				book.volumeInfo["title"] = "Unknown Title";
 			}
 			if (book.volumeInfo.hasOwnProperty("authors") === false) {
 				book.volumeInfo["authors"] = "Unknown Author";
 			}
+			if (book.volumeInfo.hasOwnProperty("pageCount") === false) {
+				book.volumeInfo["pageCount"] = "Unknown";
+			}
+			if (book.volumeInfo.hasOwnProperty("publisher") === false) {
+				book.volumeInfo["publisher"] = "Unknown";
+			}
+			if (book.volumeInfo.hasOwnProperty("publishedDate") === false) {
+				book.volumeInfo["publishedDate"] = "Unknown";
+			}
+			if (book.volumeInfo.hasOwnProperty("categories") === false) {
+				book.volumeInfo["categories"] = "Unknown";
+			}
+			if (book.volumeInfo.hasOwnProperty("subtitle") === false) {
+				book.volumeInfo["subtitle"] = "Unknown Subtitle";
+			}
+			if (book.volumeInfo.hasOwnProperty("description") === false) {
+				book.volumeInfo["description"] =
+					"This book's description is missing";
+			}
 			return book;
 		});
 		return updatedBookData;
-	}
+	};
 
 	// API call with SearchTerm
 	useEffect(() => {
-		axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40`).then((res) => {
-			setBooks(addMissingBookInfo(res.data.items));
-		  })
-		  .catch(err => console.log(err))
+		axios
+			.get(
+				`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=40`
+			)
+			.then((res) => {
+				setBooks(addMissingBookInfo(res.data.items));
+			})
+			.catch((err) => console.log(err));
 	}, [searchTerm]);
-
 
 	// Toggle Wishlist Button - add or remove book from wishlist
 	const toggleWishlist = (book) => {
@@ -79,8 +102,7 @@ const App = () => {
 	// Handle Book Detail Button
 	const handleBookDetailBtn = (book) => {
 		setBookDetail(book);
-	}
-
+	};
 
 	return (
 		<div className="App">
@@ -98,36 +120,39 @@ const App = () => {
 						</Home>
 					</Route>
 					<Route exact path="/wishlist">
-						<Wishlist 
-							books={books} 
+						<Wishlist
+							books={books}
 							searchTerm={searchTerm}
 							wishlist={wishlist}
 							toggleWishlist={toggleWishlist}
 							wishlistCounter={wishlistCounter}
-							handleBookDetailBtn={handleBookDetailBtn} />
+							handleBookDetailBtn={handleBookDetailBtn}
+						/>
 					</Route>
 					<Route exact path="/quotes">
 						<Quotes />
 					</Route>
 					<Route exact path="/booklist">
 						<Home>
-							{books.length === 0 ? 
-								<HomeBackground /> 
-							: 
-								<BookList 
-									books={books} 
+							{books.length === 0 ? (
+								<HomeBackground />
+							) : (
+								<BookList
+									books={books}
 									searchTerm={searchTerm}
 									wishlist={wishlist}
 									toggleWishlist={toggleWishlist}
-									handleBookDetailBtn={handleBookDetailBtn} />
-							}
+									handleBookDetailBtn={handleBookDetailBtn}
+								/>
+							)}
 						</Home>
 					</Route>
 					<Route path="/booklist/:title">
-						<BookDetail 
+						<BookDetail
 							book={bookDetail}
 							wishlist={wishlist}
-							toggleWishlist={toggleWishlist} />
+							toggleWishlist={toggleWishlist}
+						/>
 					</Route>
 				</Switch>
 			</BrowserRouter>
