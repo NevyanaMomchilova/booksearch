@@ -1,9 +1,14 @@
 import "./BookList.css";
 import BookCard from "./BookCard";
 
-const BookList = ({ books, searchTerm, wishlist, toggleWishlist, handleBookDetailBtn }) => {
-	
-
+const BookList = ({
+	children,
+	books,
+	searchTerm,
+	wishlist,
+	toggleWishlist,
+	handleBookDetailBtn,
+}) => {
 	return (
 		<div className="book-list">
 			<h1 className="book-list-title">
@@ -25,6 +30,7 @@ const BookList = ({ books, searchTerm, wishlist, toggleWishlist, handleBookDetai
 					);
 				})}
 			</div>
+			{children}
 		</div>
 	);
 };

@@ -8,6 +8,8 @@ import Home from "./components/Home";
 import HomeBackground from "./components/HomeBackground";
 import Wishlist from "./components/Wishlist";
 import BookDetail from "./components/BookDetail";
+import Button from "./components/Button";
+import { BsFillArrowUpCircleFill } from "react-icons/bs";
 
 const App = () => {
 	const [books, setBooks] = useState([]);
@@ -15,6 +17,7 @@ const App = () => {
 	const [wishlist, setWishlist] = useState([]);
 	const [wishlistCounter, setWishlistCounter] = useState(0);
 	const [bookDetail, setBookDetail] = useState({});
+	const [showScrollTopBtn, setShowScrollTopBtn] = useState(false);
 
 	// Handle Click Event in Search Component after click on the search icon
 	const handleSearchClick = (searchInputRef) => {
@@ -102,6 +105,23 @@ const App = () => {
 		setBookDetail(book);
 	};
 
+	// Set the showScrollTopBtn
+	useEffect(() => {
+		window.addEventListener("scroll", () => {
+			if (window.pageYOffset > 300) {
+				setShowScrollTopBtn(true);
+			} else {
+				setShowScrollTopBtn(false);
+			}
+		});
+	}, []);
+
+	// Scroll to top functionality
+	const scrollTop = () => {
+		console.log("hi");
+		window.scrollTo(0, 0);
+	};
+
 	return (
 		<div className="App">
 			<BrowserRouter>
@@ -125,7 +145,16 @@ const App = () => {
 							toggleWishlist={toggleWishlist}
 							wishlistCounter={wishlistCounter}
 							handleBookDetailBtn={handleBookDetailBtn}
-						/>
+						>
+							{showScrollTopBtn && (
+								<Button
+									className={"scroll-top-btn"}
+									handleFunction={scrollTop}
+								>
+									<BsFillArrowUpCircleFill className="scroll-top-btn-icon" />
+								</Button>
+							)}
+						</Wishlist>
 					</Route>
 					<Route exact path="/booklist">
 						<Home>
@@ -138,7 +167,16 @@ const App = () => {
 									wishlist={wishlist}
 									toggleWishlist={toggleWishlist}
 									handleBookDetailBtn={handleBookDetailBtn}
-								/>
+								>
+									{showScrollTopBtn && (
+										<Button
+											className={"scroll-top-btn"}
+											handleFunction={scrollTop}
+										>
+											<BsFillArrowUpCircleFill className="scroll-top-btn-icon" />
+										</Button>
+									)}
+								</BookList>
 							)}
 						</Home>
 					</Route>

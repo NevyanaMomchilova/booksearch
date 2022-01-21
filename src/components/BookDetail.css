@@ -22,7 +22,7 @@
 }
 
 .book-detail-about-info {
-	max-width: 120ch;
+	max-width: 100ch;
 }
 
 /* Book Details */
@@ -84,6 +84,10 @@
 	.book-detail-additional-info {
 		padding-left: 5rem;
 	}
+
+	.book-detail-about-info {
+		max-width: 80ch;
+	}
 }
 
 @media screen and (max-width: 750px) {
@@ -101,6 +105,10 @@
 
 	.book-detail-main-info {
 		margin: 0 0 10rem 20rem;
+	}
+
+	.book-detail-about-info {
+		max-width: 60ch;
 	}
 }
 

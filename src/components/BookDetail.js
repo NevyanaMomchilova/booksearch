@@ -15,7 +15,7 @@ const BookDetail = ({ book, wishlist, toggleWishlist }) => {
 	const description = book.volumeInfo.description;
 
 	return (
-		<div className="book-detail">
+		<div className="book-detail" key={book.id}>
 			<div className="book-detail-wrapper">
 				<img className="book-detail-img" src={imageSrc} alt={title} />
 				<div className="book-detail-main-info">
