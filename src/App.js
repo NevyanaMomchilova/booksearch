@@ -7,9 +7,7 @@ import BookList from "./components/BookList";
 import Home from "./components/Home";
 import HomeBackground from "./components/HomeBackground";
 import Wishlist from "./components/Wishlist";
-import Quotes from "./components/Quotes";
 import BookDetail from "./components/BookDetail";
-import BookCard from "./components/BookCard";
 
 const App = () => {
 	const [books, setBooks] = useState([]);
@@ -66,7 +64,7 @@ const App = () => {
 			}
 			if (book.volumeInfo.hasOwnProperty("description") === false) {
 				book.volumeInfo["description"] =
-					"This book's description is missing";
+					"This book description is missing";
 			}
 			return book;
 		});
@@ -128,9 +126,6 @@ const App = () => {
 							wishlistCounter={wishlistCounter}
 							handleBookDetailBtn={handleBookDetailBtn}
 						/>
-					</Route>
-					<Route exact path="/quotes">
-						<Quotes />
 					</Route>
 					<Route exact path="/booklist">
 						<Home>
