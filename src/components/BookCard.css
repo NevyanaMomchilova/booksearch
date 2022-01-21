@@ -1,47 +1,46 @@
 .book-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1;
-    flex-basis: 25rem;
-    height: 45rem;
-    padding: 1.4rem;
-    border: 0.05rem solid var(--dark);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	flex-grow: 1;
+	flex-basis: 25rem;
+	height: 45rem;
+	padding: 1.4rem;
+	border: 0.05rem solid var(--dark);
 }
 
 .book-card-img {
-    width: 15rem;
-    margin-bottom: 1rem;
-    border-radius: 0.5rem;
+	width: 15rem;
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
 }
 
 .book-card-title {
-    font-size: 1.8rem;
-    line-height: 2rem;
-    margin-bottom: 1rem;
-    
+	font-size: 1.8rem;
+	line-height: 2rem;
+	margin-bottom: 1rem;
 }
 
 .book-card-title,
 .book-card-author {
-    width: 20h;
+	width: 20ch;
 }
 
 .book-card-author {
-    line-height: 1.6rem;
-    font-size: 1.4rem;
-    color: var(--grayish);
+	line-height: 1.6rem;
+	font-size: 1.4rem;
+	color: var(--grayish);
 }
 
 .book-card-btn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
 }
 
 /* Hover effects */
 .book-card:hover {
-    box-shadow: 0.1rem 0.1rem 1rem 0.5rem var(--dark);
+	box-shadow: 0.1rem 0.1rem 1rem 0.5rem var(--dark);
 }

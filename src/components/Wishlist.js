@@ -1,6 +1,5 @@
 import "./Wishlist.css";
 import BookCard from "./BookCard";
-import Button from "./Button";
 
 const Wishlist = ({
 	children,
