@@ -61,6 +61,7 @@
 	width: 5rem;
 	height: 5rem;
 	cursor: pointer;
+	flex-grow: 1;
 }
 
 .wishlist-bubble,
@@ -109,4 +110,45 @@
 .wishlist-container:hover {
 	transform: scale(1.1);
 	transition: all 0.1s ease-in-out;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 950px) {
+	.navbar {
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		height: 15rem;
+		padding: 2rem 4rem;
+	}
+
+	.navbar-items-left {
+		width: 100%;
+		margin-bottom: 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	.navbar-items-right {
+		width: 100%;
+	}
+
+	.wishlist-container {
+		margin-right: 1.2rem;
+	}
+
+	.navbar-menu {
+		padding: 0;
+	}
+
+	.navbar-menu-link {
+		margin-right: 0.5rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.navbar {
+		padding: 2rem 1rem;
+	}
 }
