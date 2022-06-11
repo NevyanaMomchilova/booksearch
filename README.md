@@ -6,11 +6,12 @@ https://yourbooksearch.netlify.app/
 
 ## Main functionalities
 
--   fetch books from Google Books Api using search term from input field
--   show list with the fetched books
--   add/remove to wishlist functionality
--   show wishlist with the wishlisted books
--   check book details (details page)
+-   Fetch books from Google Books API using search term from input field
+-   Show list with the fetched books
+-   Add/remove to wishlist functionality
+-   Show wishlist with the wish listed books
+-   Check book details (details page)
+-   Navigation with react-router-dom
 
 ## Additional Dependencies Used
 
